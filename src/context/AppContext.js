@@ -1,5 +1,17 @@
 import React, { createContext, useReducer } from 'react';
 
+export let changeFactors = [];
+changeFactors['$'] = 1;
+changeFactors['€'] =  1.1;
+changeFactors['£'] = 1.5;
+changeFactors['¥'] = 0.8;
+
+export const applyFactor = (cur, value) => {
+    console.log(changeFactors[cur]);
+    let result = value / changeFactors[cur];
+    return Number.parseFloat(result).toFixed(2);
+};
+
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
     let budget = 0;
